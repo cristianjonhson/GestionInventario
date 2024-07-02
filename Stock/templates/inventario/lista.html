@@ -1,0 +1,27 @@
+{% extends 'base.html' %} {% block content %}
+<h1 class="mb-3">Productos</h1>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for producto in productos %}
+        <tr>
+            <th scope="row">{{ producto.id }}</th>
+            <td>{{ producto.nombre }}</td>
+            <td>{{ producto.cantidad }}</td>
+            <td>
+                <a href="{% url 'detalle_producto' producto.id %}">Detalles</a>
+                <a href="{% url 'actualizar_inventario' producto.id %}">Actualizar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %} {% block content %}
+<h1 class="mb-3">Actualizar Inventario</h1>
+
+<form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="cantidad">Cantidad</label>
+        <input type="number" class="form-control" id="cantidad" name="cantidad" value="{{ producto.cantidad }}">
+    </div>
+    <button type="submit" class="btn btn-primary">Actualizar</button>
+</form>
+
+<a href="{% url 'detalle_producto' producto.id %}" class="btn btn-secondary mt-3">Regresar</a> {% endblock %}
